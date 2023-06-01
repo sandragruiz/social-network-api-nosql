@@ -88,4 +88,32 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+
+/// Add/remove friends ///
+
+// POST to add a new friend to a user's friend list 
+
+router.post('/:userId/friends/:friendId', async (req, res) => {
+    try {
+      const currentUser = await User.findById(req.params.userId);
+      const friendUser = await User.findById(req.params.friendId);
+  
+      if (!currentUser || !friendUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      currentUser.friends.push(friendUser._id);
+      await currentUser.save();
+  
+      res.json(currentUser);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json(err);
+    }
+  });
+
+  // DELETE to remove a friend from a user's friend list 
+
+  
+
 module.exports = router;
