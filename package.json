@@ -9,6 +9,7 @@
   "author": "sandragruiz",
   "license": "MIT",
   "dependencies": {
+    "dayjs": "^1.11.7",
     "express": "^4.18.2",
     "mongoose": "^7.2.2"
   }
