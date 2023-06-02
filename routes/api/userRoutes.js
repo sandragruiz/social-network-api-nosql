@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models');
+const { User } = require('../models'); // getting an error here, 'cannot find module'
 
 // GET all users
 
